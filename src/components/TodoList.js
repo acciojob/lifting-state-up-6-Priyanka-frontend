@@ -6,18 +6,17 @@ function TodoList({ todos, handleComplete }) {
     <h2>Child Component</h2>
     <div>
       {todos.map((todo) => (
-        <ul key={todo.id}>
-          <li>
-            {todo.text} {todo.completed && "(Completed)"}
-            {!todo.completed && (
+        <div key={todo.id}>
+          <span style={{marginRight : "5px"}}>{todo.text}</span>
+
+          {todo.completed ? (
+            <span style={{marginRight : "5px"}}>Completed</span>
+          ) : (
             <button onClick={() => handleComplete(todo.id)}>
               Complete
             </button>
           )}
-          </li>
-
-          
-        </ul>
+        </div>
       ))}
     </div>
     </>
